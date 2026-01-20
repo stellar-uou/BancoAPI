@@ -11,16 +11,24 @@ namespace BancoAPI.Controllers
     public class AccountsController : ControllerBase
     {
         private static List<Account> accounts = new();
-
-        // tokens de login ativos
         private static Dictionary<string, Account> loggedInAccounts = new();
 
-        // criar conta
+        private static readonly Random random = new();
+
+        // criar conta com número aleatório
         [HttpPost("register")]
         public IActionResult Register(Account account)
         {
             account.Id = accounts.Count + 1;
-            account.AccountNumber = $"ACC-{account.Id:0000}";
+
+            // Gera número de conta aleatório de 6 dígitos, sem duplicatas
+            string accountNumber;
+            do
+            {
+                accountNumber = $"ACC-{random.Next(100000, 999999)}";
+            } while (accounts.Any(a => a.AccountNumber == accountNumber));
+
+            account.AccountNumber = accountNumber;
             account.Balance = 0;
             account.Transactions = new List<Transaction>();
 
@@ -29,7 +37,7 @@ namespace BancoAPI.Controllers
             return Ok(account);
         }
 
-        // fazer login
+        // login
         [HttpPost("login")]
         public IActionResult Login(LoginRequest request)
         {
@@ -41,11 +49,8 @@ namespace BancoAPI.Controllers
             if (account == null)
                 return Unauthorized("Email ou senha inválidos");
 
-            // gerar token
-            var random = new Random();
-            var token = random.Next(100000, 999999).ToString(); // gera um número de 6 dígitos
+            var token = random.Next(100000, 999999).ToString();
             loggedInAccounts[token] = account;
-
 
             return Ok(new
             {
@@ -54,7 +59,7 @@ namespace BancoAPI.Controllers
             });
         }
 
-        // verificar saldo (só com token)
+        // saldo
         [HttpGet("balance")]
         public IActionResult GetBalance([FromHeader] string token)
         {
@@ -70,7 +75,7 @@ namespace BancoAPI.Controllers
             });
         }
 
-        // visualizar extrato (só com token)
+        // extrato
         [HttpGet("statement")]
         public IActionResult GetStatement([FromHeader] string token)
         {
@@ -86,7 +91,7 @@ namespace BancoAPI.Controllers
             });
         }
 
-        // fazer depósito (só na conta logada)
+        // depósito
         [HttpPost("deposit")]
         public IActionResult Deposit([FromHeader] string token, [FromBody] decimal amount)
         {
@@ -98,10 +103,10 @@ namespace BancoAPI.Controllers
             if (amount <= 0)
                 return BadRequest("O valor do depósito deve ser maior que zero");
 
+            account.Balance += amount;
+
             if (account.Transactions == null)
                 account.Transactions = new List<Transaction>();
-
-            account.Balance += amount;
 
             account.Transactions.Add(new Transaction
             {
@@ -117,7 +122,7 @@ namespace BancoAPI.Controllers
             });
         }
 
-        // transferência entre contas (origem: conta logada)
+        // transferência
         [HttpPost("transfer")]
         public IActionResult Transfer([FromHeader] string token, [FromBody] TransferRequest request)
         {
@@ -133,13 +138,13 @@ namespace BancoAPI.Controllers
             if (sourceAccount.Balance < request.Amount)
                 return BadRequest("Saldo insuficiente na conta de origem.");
 
-            // Executar transferência
             sourceAccount.Balance -= request.Amount;
             destinationAccount.Balance += request.Amount;
 
-            // registrar transações
-            if (sourceAccount.Transactions == null) sourceAccount.Transactions = new List<Transaction>();
-            if (destinationAccount.Transactions == null) destinationAccount.Transactions = new List<Transaction>();
+            if (sourceAccount.Transactions == null)
+                sourceAccount.Transactions = new List<Transaction>();
+            if (destinationAccount.Transactions == null)
+                destinationAccount.Transactions = new List<Transaction>();
 
             sourceAccount.Transactions.Add(new Transaction
             {
