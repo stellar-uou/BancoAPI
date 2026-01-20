@@ -1,8 +1,8 @@
-# 🏦 BancoAPI
+#### 🏦 BancoAPI
 
 <p align="center">
-  <img src="https://img.shields.io" alt=".NET 10">
-  <img src="https://img.shields.io" alt="Docker">
+  ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+  <img src="![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)" alt="Docker">
   <img src="https://img.shields.io" alt="C#">
   <img src="https://img.shields.io" alt="Swagger">
 </p>
@@ -30,7 +30,7 @@ O **BancoAPI** é uma solução moderna desenvolvida em **C# com ASP.NET 10**, p
 
 ## 💻 Como Rodar o Projeto
 
-### Opção 1: Localmente
+## Opção 1: Localmente
 Se você tem o SDK do .NET instalado:
 
 1. Clone o repositório:
@@ -44,7 +44,8 @@ dotnet run
 Use o código com cuidado.
 
 Acesse a documentação interativa: https://localhost:{porta}/swagger
-Opção 2: Via Docker 🐳
+
+## Opção 2: Via Docker 🐳
 Para rodar em um ambiente isolado:
 Construa a imagem:
 bash
