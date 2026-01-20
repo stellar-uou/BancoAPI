@@ -1,11 +1,14 @@
 #### 🏦 BancoAPI
 
-<p align="center">
-  ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-  ![.NET 10](https://img.shields.io/badge/.NET-10-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
-  ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white)
-  ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-</p>
+<div align="center">
+
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.NET 10](https://img.shields.io/badge/.NET-10-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+</div>
 
 O **BancoAPI** é uma solução moderna desenvolvida em **C# com ASP.NET 10**, projetada para gerenciar operações bancárias essenciais de forma ágil e segura. A API oferece autenticação simplificada, gestão de contas e transações, tudo documentado via Swagger para facilitar a integração.
 
