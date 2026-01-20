@@ -1,71 +1,63 @@
-BancoAPI
+# 🏦 BancoAPI
 
-BancoAPI é uma API bancária desenvolvida em C# com ASP.NET 10, criada para gerenciar contas, autenticação e transações de forma simples.
+<p align="center">
+  <img src="https://img.shields.io" alt=".NET 10">
+  <img src="https://img.shields.io" alt="Docker">
+  <img src="https://img.shields.io" alt="C#">
+  <img src="https://img.shields.io" alt="Swagger">
+</p>
 
-A API possui documentação interativa via Swagger e pode ser executada facilmente com Docker, garantindo portabilidade e facilidade de testes.
+O **BancoAPI** é uma solução moderna desenvolvida em **C# com ASP.NET 10**, projetada para gerenciar operações bancárias essenciais de forma ágil e segura. A API oferece autenticação simplificada, gestão de contas e transações, tudo documentado via Swagger para facilitar a integração.
 
-Funcionalidades:
+---
 
-- Cadastro de contas com número de conta aleatório
+## 🚀 Funcionalidades
 
-- Login com e-mail e senha, com geração de token de 6 dígitos
+- **Contas:** Cadastro automático com geração de número de conta aleatório.
+- **Autenticação:** Login seguro com e-mail/senha e geração de Token de 6 dígitos.
+- **Consultas:** Saldo atualizado e extrato detalhado com histórico.
+- **Transações:** Depósitos e transferências entre contas da base.
 
-- Consulta de saldo da conta
+## 🛠️ Tecnologias Utilizadas
 
-- Consulta de extrato com histórico de transações
+- **Linguagem:** C# (.NET 10)
+- **Framework:** ASP.NET Web API
+- **Persistência:** Collections e Listas (Armazenamento em Memória)
+- **Documentação:** Swagger (OpenAPI)
+- **Containerização:** Docker
 
-- Depósitos em conta
+---
 
-- Transferências entre contas
+## 💻 Como Rodar o Projeto
 
-Tecnologias Utilizadas:
+### Opção 1: Localmente
+Se você tem o SDK do .NET instalado:
 
-- C# / .NET 10
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/stellar-uou/BancoAPI
+Use o código com cuidado.
 
-- ASP.NET Web API
+Entre na pasta do projeto e execute:
+bash
+dotnet run
+Use o código com cuidado.
 
-- Collections e listas para armazenamento temporário (em memória)
-
-- Swagger para documentação e testes de endpoints
-
-- Docker para execução em contêiner
-
-Como Rodar o Projeto:
-
-- Opção 1: Localmente
-
-Clone o repositório:
-git clone https://github.com/stellar-uou/BancoAPI
-
-Abra no Visual Studio ou VS Code
-
-Execute a API:
-Visual Studio: pressione F5
-
-Terminal: dotnet run
-
-Acesse o Swagger:
-https://localhost:{porta}/swagger
-
-Teste os endpoints usando Swagger, Postman ou outro cliente HTTP
-
-- Opção 2: Usando Docker
-
-Certifique-se de ter o Docker instalado
-
-Na raiz do projeto, construa a imagem:
+Acesse a documentação interativa: https://localhost:{porta}/swagger
+Opção 2: Via Docker 🐳
+Para rodar em um ambiente isolado:
+Construa a imagem:
+bash
 docker build -t bancoapi .
+Use o código com cuidado.
 
-Execute o container:
+Inicie o container:
+bash
 docker run -p 5000:5000 bancoapi
+Use o código com cuidado.
 
-A API estará disponível em:
-http://localhost:5000
-
-Acesse o Swagger:
-http://localhost:5000/swagger
-
-Observações:
-
-Este projeto é voltado para aprendizado e portfólio, não sendo indicado para produção sem adaptações de segurança e persistência real em banco de dados.
-O token gerado para login é de 6 dígitos, apenas para fins didáticos.
+A API estará disponível em: http://localhost:5000/swagger
+⚠️ Observações Acadêmicas
+Nota: Este projeto foi desenvolvido exclusivamente para fins de aprendizado e portfólio.
+Os dados são armazenados em memória (serão perdidos ao reiniciar a aplicação).
+O sistema de Token de 6 dígitos é simplificado para fins didáticos e não deve ser utilizado em sistemas de produção reais.
