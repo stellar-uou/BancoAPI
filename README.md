@@ -6,7 +6,6 @@
 ![.NET 10](https://img.shields.io/badge/.NET-10-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 </div>
 
