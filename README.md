@@ -1,4 +1,4 @@
-#### 🏦 BancoAPI
+# 🏦 BancoAPI
 
 <div align="center">
 
@@ -13,14 +13,16 @@ O **BancoAPI** é uma solução moderna desenvolvida em **C# com ASP.NET 10**, p
 
 ---
 
-## 🚀 Funcionalidades
+### 🚀 Funcionalidades
 
 - **Contas:** Cadastro automático com geração de número de conta aleatório.
 - **Autenticação:** Login seguro com e-mail/senha e geração de Token de 6 dígitos.
 - **Consultas:** Saldo atualizado e extrato detalhado com histórico.
 - **Transações:** Depósitos e transferências entre contas da base.
 
-## 🛠️ Tecnologias Utilizadas
+---
+
+### 🛠️ Tecnologias Utilizadas
 
 - **Linguagem:** C# (.NET 10)
 - **Framework:** ASP.NET Web API
@@ -30,9 +32,9 @@ O **BancoAPI** é uma solução moderna desenvolvida em **C# com ASP.NET 10**, p
 
 ---
 
-## 💻 Como Rodar o Projeto
+## 💻 Como Rodar o Projeto:
 
-## Opção 1: Localmente
+### Opção 1: Localmente
 Se você tem o SDK do .NET instalado:
 
 1. Clone o repositório:
@@ -47,7 +49,7 @@ Use o código com cuidado.
 
 Acesse a documentação interativa: https://localhost:{porta}/swagger
 
-## Opção 2: Via Docker 🐳
+### Opção 2: Via Docker 🐳
 Para rodar em um ambiente isolado:
 Construa a imagem:
 bash
@@ -60,7 +62,10 @@ docker run -p 5000:5000 bancoapi
 Use o código com cuidado.
 
 A API estará disponível em: http://localhost:5000/swagger
-⚠️ Observações Acadêmicas
+
+---
+
+### ⚠️ Observações Acadêmicas
 Nota: Este projeto foi desenvolvido exclusivamente para fins de aprendizado e portfólio.
 Os dados são armazenados em memória (serão perdidos ao reiniciar a aplicação).
 O sistema de Token de 6 dígitos é simplificado para fins didáticos e não deve ser utilizado em sistemas de produção reais.
